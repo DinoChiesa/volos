@@ -494,6 +494,7 @@ function verifyRequestComplete(resp, cb) {
   });
 
   resp.on('end', function() {
+    debug('verifyToken: status %d, data: %s', resp.statusCode, respData);
     if (resp.statusCode !== 200) {
       var err = new Error('Error on HTTP request');
       err.statusCode = resp.statusCode;
